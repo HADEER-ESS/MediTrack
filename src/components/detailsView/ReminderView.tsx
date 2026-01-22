@@ -1,9 +1,9 @@
 import React from 'react'
 
-const SchedualScreen = () => {
+const ReminderView = () => {
     return (
         <></>
     )
 }
 
-export default SchedualScreen
+export default ReminderView

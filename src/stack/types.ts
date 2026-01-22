@@ -6,10 +6,8 @@ export type RootParamList = {
 
 
 export type ScreenParamList = {
+    onbording: { userName: string }
     home: undefined,
-    details: undefined,
-    schedule: undefined,
-    reminder: undefined,
-    notes: undefined
+    medication: undefined
 }
 
