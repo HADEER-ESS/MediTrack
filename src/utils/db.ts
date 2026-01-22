@@ -18,3 +18,7 @@ export const db = createMMKV({
 
     - History Data
     */}
+
+export const userInfo = createMMKV({
+    id: "user_info"
+})
