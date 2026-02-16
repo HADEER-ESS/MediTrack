@@ -5,14 +5,14 @@ const mainStyle = StyleSheet.create({
     screenView: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
+        // alignItems: 'center',
         backgroundColor: COLORS.NEUTRAL,
     },
     mainText: {
-        fontSize: 24,
+        fontSize: 32,
         fontWeight: 'bold',
-        color: COLORS.TEXT,
-        textAlign: 'center',
+        color: COLORS.PRIMARY,
+        // textAlign: 'center',
         marginBottom: 10,
     },
     subText: {}
