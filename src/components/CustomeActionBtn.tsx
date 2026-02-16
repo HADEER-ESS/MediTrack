@@ -12,6 +12,7 @@ const CustomeActionBtn = ({ title, action }: props) => {
     return (
         <TouchableOpacity
             style={styles.btnContainer}
+            accessibilityRole='button'
             onPress={action}>
             <Text style={styles.btnStyle}>{title}</Text>
         </TouchableOpacity>
