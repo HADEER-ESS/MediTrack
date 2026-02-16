@@ -13,17 +13,32 @@ const RootStack = () => {
     return (
         <Tab.Navigator
             initialRouteName='home_flow'
-            screenOptions={{
+            screenOptions={({ route }) => ({
                 headerShown: false,
                 tabBarActiveTintColor: COLORS.PRIMARY,
                 tabBarInactiveTintColor: COLORS.SUBTLE,
-            }}
+                tabBarIcon: ({ color, size }) => {
+                    let iconName: any
+
+                    switch (route.name) {
+                        case 'history':
+                            iconName = 'calendar'
+                            break
+                        case 'home_flow':
+                            iconName = 'home'
+                            break
+                        case 'notification':
+                            iconName = 'notifications'
+                            break
+                    }
+                    return <Ionicons name={iconName} size={size} color={color} />
+                }
+            })}
         >
             <Tab.Screen
                 name='history'
                 options={{
                     title: "History",
-                    tabBarIcon: ({ color, size }) => (<Ionicons name='calendar' color={color} size={size} />)
                 }}
                 component={History}
             />
@@ -31,15 +46,13 @@ const RootStack = () => {
                 name='home_flow'
                 options={{
                     title: "Home",
-                    tabBarIcon: ({ color, size }) => (<Ionicons name='home' color={color} size={size} />)
                 }}
                 component={ScreenStack}
             />
             <Tab.Screen
-                name='norification'
+                name='notification'
                 options={{
                     title: "Notifications",
-                    tabBarIcon: ({ color, size }) => (<Ionicons name='notifications' color={color} size={size} />)
                 }}
                 component={Notifications}
             />

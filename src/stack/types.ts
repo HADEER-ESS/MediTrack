@@ -1,7 +1,7 @@
 export type RootParamList = {
     home_flow: undefined,
     history: undefined,
-    norification: undefined
+    notification: undefined
 }
 
 
