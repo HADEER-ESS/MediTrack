@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const NotificationScreen = () => {
-    return (
-        <></>
-    )
-}
+  return <></>;
+};
 
-export default NotificationScreen
+export default NotificationScreen;

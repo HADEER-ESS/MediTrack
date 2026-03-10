@@ -1,19 +1,24 @@
-import React from 'react'
-import { StyleSheet, TextInput, View } from 'react-native'
-import COLORS from '../constant/colors'
-import ErrorText from './ErrorText'
+import React from 'react';
+import { StyleSheet, TextInput, View } from 'react-native';
+import COLORS from '../constant/colors';
+import ErrorText from './ErrorText';
 
 type props = {
-  placeHolder: string,
-  value: string,
-  error: boolean,
-  action: (data: string) => void
-}
+  placeHolder: string;
+  value: string;
+  error: boolean;
+  action: (data: string) => void;
+};
 
 const CustomeInputField = ({ placeHolder, value, error, action }: props) => {
   return (
     <>
-      <View style={[styles.inputContainer, { borderColor: error ? COLORS.ALERT : COLORS.PRIMARY }]}>
+      <View
+        style={[
+          styles.inputContainer,
+          { borderColor: error ? COLORS.ALERT : COLORS.PRIMARY },
+        ]}
+      >
         <TextInput
           placeholder={placeHolder}
           value={value}
@@ -23,10 +28,10 @@ const CustomeInputField = ({ placeHolder, value, error, action }: props) => {
       </View>
       {error && <ErrorText msg="This field is required" type="error" />}
     </>
-  )
-}
+  );
+};
 
-export default CustomeInputField
+export default CustomeInputField;
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -35,10 +40,10 @@ const styles = StyleSheet.create({
     padding: 5,
     marginHorizontal: 20,
     marginTop: 20,
-    marginBottom: 5
+    marginBottom: 5,
   },
   inputStyle: {
     color: COLORS.TEXT,
-    fontSize: 16
-  }
-})
+    fontSize: 16,
+  },
+});
