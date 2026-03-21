@@ -7,7 +7,7 @@ on: workflow_dispatch
 # define the work that should be done
 jobs:
   first_job:
-    runs-on: macos-13
+    runs-on: ubuntu-latest
     steps:
       - name: printing greeting
         run: echo "Hello world"
