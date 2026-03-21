@@ -1,5 +1,5 @@
-export { default as Onboarding } from "./OnboardingScreen"
-export { default as Home } from "./HomeScreen"
-export { default as Notifications } from "./NotificationScreen"
-export { default as History } from "./HistoryScreen"
-export { default as Medication } from "./MedicationScreen"
+export { default as Onboarding } from './OnboardingScreen';
+export { default as Home } from './HomeScreen';
+export { default as Notifications } from './NotificationScreen';
+export { default as History } from './HistoryScreen';
+export { default as Medication } from './MedicationScreen';

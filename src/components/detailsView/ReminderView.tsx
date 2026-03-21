@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const ReminderView = () => {
-    return (
-        <></>
-    )
-}
+  return <></>;
+};
 
-export default ReminderView
+export default ReminderView;

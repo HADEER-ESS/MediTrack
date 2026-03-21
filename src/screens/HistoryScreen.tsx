@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const HistoryScreen = () => {
-    return (
-        <></>
-    )
-}
+  return <></>;
+};
 
-export default HistoryScreen
+export default HistoryScreen;

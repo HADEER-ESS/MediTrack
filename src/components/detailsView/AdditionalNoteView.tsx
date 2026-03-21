@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const AdditionalNoteView = () => {
-    return (
-        <></>
-    )
-}
+  return <></>;
+};
 
-export default AdditionalNoteView
+export default AdditionalNoteView;

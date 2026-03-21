@@ -1,10 +1,11 @@
-import { createMMKV } from 'react-native-mmkv'
+import { createMMKV } from 'react-native-mmkv';
 
 export const db = createMMKV({
-    id: "meditrack_db"
-})
+  id: 'meditrack_db',
+});
 
-{/**
+{
+  /**
     we will store 
     - User name  => to be set at WELCOME home page
     - User MEdications Data
@@ -17,8 +18,9 @@ export const db = createMMKV({
         - Additional note (Doctor, pharmacy, NOTES)
 
     - History Data
-    */}
+    */
+}
 
 export const userInfo = createMMKV({
-    id: "user_info"
-})
+  id: 'user_info',
+});
