@@ -1,0 +1,15 @@
+# The name of Action (WorkFlow) (Essential)
+name: First Workflow
+# when you want this WORKFLOW be excuted
+# workflow_dispatch => means MANUALLY trigger
+on: workflow_dispatch 
+
+# define the work that should be done
+jobs:
+  first_job:
+    runs-on: macos-13
+    steps:
+      - name: printing greeting
+        run: echo "Hello world"
+      - name: printing end
+        run: echo "Done _ goodbye"
