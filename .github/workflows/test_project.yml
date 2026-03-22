@@ -13,10 +13,10 @@ jobs:
                 # ....
                 # we could add WITH to specify certain branch or Repo, but we will use just the default which is the current branch
             - name: Install nodeJS
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v6
             #   for configuration
               with:
-                node-version: 18
+                node-version: 24
             - name: Install dependencies
                 # yarn install === yarn ci, but yarn ci is more safe and faster because it doesn't update the lock file and doesn't check for new versions of packages, it just installs the exact versions specified in the lock file
               run: npm ci
