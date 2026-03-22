@@ -23,6 +23,13 @@ jobs:
               uses: actions/setup-node@v6
               with:
                 node-version: 24
+            
+            # add cache dependancies to speed up workflow
+            - name: Cache dependencies
+              uses: action/cache@v4
+              with:
+                path: ~/.yarn/cache
+                key: deps-node-modules-${{hashFiles('**/yarn.lock')}}
 
             - name: Install dependencies
               run: yarn install --frozen-lockfile
@@ -39,6 +46,11 @@ jobs:
             #   for configuration
             #   with:
                 # ....
+            - name: Cache dependencies
+              uses: action/cache@v4
+              with:
+                path: ~/.yarn/cache
+                key: deps-node-modules-${{hashFiles('**/yarn.lock')}}
             - name: Install dependencies
                 # yarn install === yarn ci, but yarn ci is more safe and faster because it doesn't update the lock file and doesn't check for new versions of packages, it just installs the exact versions specified in the lock file
               run: yarn install --frozen-lockfile
@@ -53,6 +65,12 @@ jobs:
         steps:
             - name: Get code
               uses: actions/checkout@v6
+
+            - name: Cache dependencies
+              uses: action/cache@v4
+              with:
+                path: ~/.yarn/cache
+                key: deps-node-modules-${{hashFiles('**/yarn.lock')}}
 
             - name: Install dependencies
               run: yarn install --frozen-lockfile
