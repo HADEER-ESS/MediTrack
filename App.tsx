@@ -5,10 +5,9 @@
  * @format
  */
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, useColorScheme } from 'react-native';
 import {
   SafeAreaProvider,
-  useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import RootStack from './src/stack/RootStack';
 

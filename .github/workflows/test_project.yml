@@ -1,5 +1,16 @@
 name: Run Project Tests
-on: [push, workflow_dispatch] # this means that the workflow will run on every push to the repository and also it can be triggered manually from the Actions tab in the GitHub repository
+on: 
+    pull_request:
+        types:
+            - opened
+    push:
+        branches: 
+            - main
+            - 'dev-*'
+            - 'feat/**'
+        tags: fix/*
+    workflow_dispatch:
+    # [push, workflow_dispatch] # this means that the workflow will run on every push to the repository and also it can be triggered manually from the Actions tab in the GitHub repository
 
 jobs:
     run_lint:
