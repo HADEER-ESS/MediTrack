@@ -1,0 +1,10 @@
+name: Output information
+on: workflow_dispatch
+
+jobs:
+    output_info:
+        runs-on: ubuntu-latest
+        steps:
+            - name: output github context
+            # the below line is called an EXPRESSION search for (github action expression)
+              run: echo "${{toJson(github)}}" #search for (github action context), to get all available
