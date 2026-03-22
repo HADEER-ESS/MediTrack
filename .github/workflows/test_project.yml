@@ -1,5 +1,5 @@
 name: Run Project Tests
-on: push
+on: [push, workflow_dispatch] # this means that the workflow will run on every push to the repository and also it can be triggered manually from the Actions tab in the GitHub repository
 
 jobs:
     run_tests: #the name is upto you, it could be anything
