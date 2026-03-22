@@ -19,6 +19,6 @@ jobs:
                 node-version: 18
             - name: Install dependencies
                 # yarn install === yarn ci, but yarn ci is more safe and faster because it doesn't update the lock file and doesn't check for new versions of packages, it just installs the exact versions specified in the lock file
-              run: yarn ci
+              run: yarn install
             - name: Run tests
               run: yarn test
