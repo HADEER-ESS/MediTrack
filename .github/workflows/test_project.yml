@@ -25,6 +25,7 @@ jobs:
 
             #   SECOND JOB ACTION
     deployment_project: #the name is upto you, it could be anything
+        needs: run_tests #this make the second job (deployment_project) runs after the first job (run_tests) finished and successed
         runs-on: ubuntu-latest #every job have to have its own runner
         steps:
             - name: Get code
