@@ -2,6 +2,23 @@ name: Run Project Tests
 on: [push, workflow_dispatch] # this means that the workflow will run on every push to the repository and also it can be triggered manually from the Actions tab in the GitHub repository
 
 jobs:
+    run_lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v6
+                # we could add WITH to specify certain branch or Repo, but we will use just the default which is the current branch
+            - name: Install nodeJS #it may be ignored as RUNNER already have nodeJS
+              uses: actions/setup-node@v6
+              with:
+                node-version: 24
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Run lint
+              run: yarn lint
+
     run_tests: #the name is upto you, it could be anything
         runs-on: ubuntu-latest
         steps:
@@ -11,15 +28,10 @@ jobs:
             #   for configuration
             #   with:
                 # ....
-                # we could add WITH to specify certain branch or Repo, but we will use just the default which is the current branch
-            - name: Install nodeJS
-              uses: actions/setup-node@v6
-            #   for configuration
-              with:
-                node-version: 24
             - name: Install dependencies
                 # yarn install === yarn ci, but yarn ci is more safe and faster because it doesn't update the lock file and doesn't check for new versions of packages, it just installs the exact versions specified in the lock file
               run: yarn install --frozen-lockfile
+
             - name: Run tests
               run: yarn test
 
@@ -30,11 +42,9 @@ jobs:
         steps:
             - name: Get code
               uses: actions/checkout@v6
-            - name: Install nodeJS
-              uses: actions/setup-node@v6
-              with:
-                node-version: 24
+
             - name: Install dependencies
               run: yarn install --frozen-lockfile
+
             - name: Deploy the project
               run: echo "Deploying the project..."
