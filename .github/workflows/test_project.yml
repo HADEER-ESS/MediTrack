@@ -1,0 +1,24 @@
+name: Run Project Tests
+on: push
+
+jobs:
+    run_tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+            # USES: used to run a certain action, in this case we want to use the checkout action to get the code of the repository
+              uses: actions/checkout@v6
+            #   for configuration
+            #   with:
+                # ....
+                # we could add WITH to specify certain branch or Repo, but we will use just the default which is the current branch
+            - name: Install nodeJS
+              uses: actions/setup-node@v3
+            #   for configuration
+              with:
+                node-version: 18
+            - name: Install dependencies
+                # yarn install === yarn ci, but yarn ci is more safe and faster because it doesn't update the lock file and doesn't check for new versions of packages, it just installs the exact versions specified in the lock file
+              run: yarn ci
+            - name: Run tests
+              run: yarn test
