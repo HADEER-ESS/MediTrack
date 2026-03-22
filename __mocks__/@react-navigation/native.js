@@ -1,8 +1,5 @@
 export const useNavigation = jest.fn("@react-navigation/native", () => {
     const actualNav = jest.requireActual("@react-navigation/native");
-    const mockedNavigate = jest.fn();
-    const mockedGoBack = jest.fn();
-    const mockedPush = jest.fn();
     return {
         ...actualNav,
         useNavigation: () => ({  //we mock useNavigation and its child methods

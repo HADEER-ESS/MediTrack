@@ -23,9 +23,7 @@ const zustandMMKVStorage = {
 
 export const useMedicationStore = create()(
     persist(
-        (_set, _get) => ({
-
-        }),
+        (set, get) => ({}),
         {
             name: "meditrack_storage",
             storage: createJSONStorage(() => zustandMMKVStorage)
