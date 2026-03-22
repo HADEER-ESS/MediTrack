@@ -7,11 +7,6 @@ jobs:
         steps:
             - name: Get code
               uses: actions/checkout@v6
-                # we could add WITH to specify certain branch or Repo, but we will use just the default which is the current branch
-            - name: Install nodeJS #it may be ignored as RUNNER already have nodeJS
-              uses: actions/setup-node@v6
-              with:
-                node-version: 24
             
             # add cache dependancies to speed up workflow
             - name: Cache dependencies
@@ -27,6 +22,7 @@ jobs:
               run: yarn lint
 
     run_tests: #the name is upto you, it could be anything
+        needs: run_lint 
         runs-on: ubuntu-latest
         steps:
             - name: Get code
