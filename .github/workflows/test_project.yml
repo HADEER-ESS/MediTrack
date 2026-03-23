@@ -89,7 +89,7 @@ jobs:
     report:
       needs: [run_lint, deployment_project]
       #this job will run when any of previous jobs failed
-      if: failure() 
+      # if: failure() 
       uses: ./.github/workflows/reusable.yml #this mean that we want to use the reusable workflow that we created in the file .github/workflows/reusable.yml
       # runs-on: ubuntu-latest
       # steps:
