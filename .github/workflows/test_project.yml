@@ -76,7 +76,9 @@ jobs:
                 name: test-report-file #should be the same as the name of Upload Artifact at previos job
             
             - name: Print output content
-              run : ls
+              run : |
+                  ls
+                  cat test.json
 
             - name: Deploy the project
               run: echo "Deploying the project..."
