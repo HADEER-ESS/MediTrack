@@ -84,3 +84,11 @@ jobs:
 
             - name: Deploy the project
               run: echo "Deploying the project..."
+    report:
+      if: failure() #this job will run when any of previous jobs failed
+      runs-on: ubuntu-latest
+      steps:
+        - name: Print report information
+          run: |
+            echo "This is a report line step"
+            echo "${{github}}"
