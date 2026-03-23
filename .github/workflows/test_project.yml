@@ -71,9 +71,9 @@ jobs:
               run: yarn install --frozen-lockfile
 
             - name: Download Artifact
-              uses: actions/download-artifact@v8
+              uses: actions/download-artifact@v4
               with:
-                name: test-report-file. #should be the same as the name of Upload Artifact at previos job
+                name: test-report-file #should be the same as the name of Upload Artifact at previos job
             
             - name: Print output content
               run : ls
