@@ -4,8 +4,8 @@ jobs:
     build_matrix:
         strategy: #allow to run the same JOB with different configurations
             matrix:
-                node-version: [18, 20, 22]
-                os: [ubuntu-latest, windows-latest, macos-latest]
+                node-version: [ 20, 24]
+                os: [ubuntu-latest, macos-latest]
         runs-on: ${{matrix.os}}
         steps:
             - name: Get Code
