@@ -2,9 +2,10 @@ name: Matrix Generation
 on: push
 jobs:
     build_matrix:
+        continue-on-error: true
         strategy: #allow to run the same JOB with different configurations
             matrix:
-                node-version: [ 20, 24]
+                node-version: [18, 20, 24]
                 os: [ubuntu-latest, macos-latest]
         runs-on: ${{matrix.os}}
         steps:
