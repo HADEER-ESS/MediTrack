@@ -1,0 +1,8 @@
+name: Reusable WorkFlow
+on: workflow_call #this mean that this workflow can be called from other workflows
+jobs:
+    execute_deployment:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Output message
+              run: echo "This is a reusable workflow"
