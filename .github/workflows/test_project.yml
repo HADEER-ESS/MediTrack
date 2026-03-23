@@ -43,6 +43,14 @@ jobs:
             - name: Run tests
               run: yarn test
 
+            - name: Upload test report
+              uses: actions/upload-artifact@v3
+              with:
+                name: test-report
+                path: |
+                  path/output/test/
+                  dist
+
             #   SECOND JOB ACTION
     deployment_project: #the name is upto you, it could be anything
         needs: run_tests #this make the second job (deployment_project) runs after the first job (run_tests) finished and successed
