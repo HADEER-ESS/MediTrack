@@ -46,7 +46,7 @@ jobs:
             - name: Upload test report
               uses: actions/upload-artifact@v4
               with:
-                name: test-report
+                name: test-report-file
                 path: |
                   path/output/test/
                   dist
@@ -68,6 +68,14 @@ jobs:
 
             - name: Install dependencies
               run: yarn install --frozen-lockfile
+
+            - name: Download Artifact
+              uses: actions/download-artifact@v8
+              with:
+                name: test-report-file. #should be the same as the name of Upload Artifact at previos job
+            
+            - name: Print output content
+              run : ls
 
             - name: Deploy the project
               run: echo "Deploying the project..."
