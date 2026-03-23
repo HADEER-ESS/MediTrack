@@ -42,7 +42,7 @@ jobs:
 
             - name: Run tests
               id: run-tests
-              run: yarn test --json --outputFile=test.json
+              run: yarn test
 
             - name: Make sure File exist
               run: ls -R
@@ -75,7 +75,8 @@ jobs:
             - name: Download Artifact
               uses: actions/download-artifact@v4
               with:
-                name: test-report-file #should be the same as the name of Upload Artifact at previos job
+                #should be the same as the name of Upload Artifact at previos job
+                name: test-report-file 
             
             - name: Print output content
               run : |
@@ -85,7 +86,8 @@ jobs:
             - name: Deploy the project
               run: echo "Deploying the project..."
     report:
-      if: failure() #this job will run when any of previous jobs failed
+      #this job will run when any of previous jobs failed
+      if: failure() 
       runs-on: ubuntu-latest
       steps:
         - name: Print report information
