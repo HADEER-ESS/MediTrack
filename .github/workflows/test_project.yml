@@ -74,8 +74,7 @@ jobs:
               run: yarn install --frozen-lockfile
 
 
-            - name: Download Artifact use REUSABLE workflow
-              uses: ./.github/workflows/reusable.yml
+            - uses: ./.github/workflows/reusable.yml
               with:
                 artifact-name: test-report-file 
 
