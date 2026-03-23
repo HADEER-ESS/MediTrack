@@ -43,6 +43,9 @@ jobs:
             - name: Run tests
               run: yarn test
 
+            - name: Make sure File exist
+              run: ls -R
+
             - name: Upload test report
               uses: actions/upload-artifact@v4
               with:
