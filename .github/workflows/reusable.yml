@@ -6,8 +6,14 @@ on:
                 description: 'The name of the artifact to download'
                 required: true
                 type: string
+        outputs:
+            result-message:
+                description: "A message from reusable workflow as OUTPUT"
+                value: ${{ jobs.execute_deployment.outputs.job_message_result}}
 jobs:
     execute_deployment:
+        outputs:
+            job_message_result: ${{ steps.mess_output.outputs.reusable-step-result }}
         runs-on: ubuntu-latest
         steps:
             - name: Get code
@@ -18,3 +24,6 @@ jobs:
               run : ls
             - name: Output message
               run: echo "This is a reusable workflow"
+            - name: Create outputs value message
+              id: mess_output
+              run: echo "reusable-step-result=SUCCESS_MESS" >> $GITHUB_OUTPUT
