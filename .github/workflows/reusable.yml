@@ -7,7 +7,7 @@ on:
                 required: true
                 type: string
         outputs:
-            result-message:
+            result_message:
                 description: "A message from reusable workflow as OUTPUT"
                 value: ${{ jobs.execute_deployment.outputs.job_message_result}}
 jobs:

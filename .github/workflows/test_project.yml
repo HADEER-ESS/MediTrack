@@ -99,3 +99,10 @@ jobs:
       #     run: |
       #       echo "This is a report line step"
       #       echo "${{github}}"
+
+    print-report-output:
+      needs: report
+      runs-on: ubuntu-latest
+      steps:
+        - name: Print the reusable workflow output message
+          run: echo "OUTPUT ${{needs.report.outputs.result_message}}"
