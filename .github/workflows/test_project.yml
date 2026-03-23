@@ -42,7 +42,7 @@ jobs:
 
             - name: Run tests
               id: run-tests
-              run: yarn test
+              run: yarn test --json --outputFile=test.json
 
             - name: Make sure File exist
               run: ls -R
