@@ -47,8 +47,8 @@ jobs:
               run: ls -R
 
             - name: Upload test report
-            #&& steps.run-tests.outcome == 'failure'
-              if: failure() 
+            #failure() && steps.run-tests.outcome == 'failure'
+              if: always()
               uses: actions/upload-artifact@v4
               with:
                 name: test-report-file
