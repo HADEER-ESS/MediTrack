@@ -1,8 +1,20 @@
 name: Reusable WorkFlow
-on: workflow_call #this mean that this workflow can be called from other workflows
+on: 
+    workflow_call: #this mean that this workflow can be called from other workflows
+        inputs:
+            artifact-name:
+                description: 'The name of the artifact to download'
+                required: true
+                type: string
 jobs:
     execute_deployment:
         runs-on: ubuntu-latest
         steps:
+            - name: Get code
+              uses: actions/download-artifact@v4
+              with:
+                name: ${{inputs.artifact-name}}
+            - name: Print output content
+              run : ls
             - name: Output message
               run: echo "This is a reusable workflow"
