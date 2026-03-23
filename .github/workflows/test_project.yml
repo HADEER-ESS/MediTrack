@@ -73,31 +73,29 @@ jobs:
             - name: Install dependencies
               run: yarn install --frozen-lockfile
 
-
-            - uses: ./.github/workflows/reusable.yml
+            - name: Download Artifact
+              uses: actions/download-artifact@v4
               with:
-                artifact-name: test-report-file 
-
-            # - name: Download Artifact
-            #   uses: actions/download-artifact@v4
-            #   with:
-            #     #should be the same as the name of Upload Artifact at previos job
-            #     name: test-report-file 
+                #should be the same as the name of Upload Artifact at previos job
+                name: test-report-file 
             
-            # - name: Print output content
-            #   run : |
-            #       ls
-            #       cat test.json
+            - name: Print output content
+              run : |
+                  ls
+                  cat test.json
 
             - name: Deploy the project
               run: echo "Deploying the project..."
     report:
       needs: [run_lint, deployment_project]
       #this job will run when any of previous jobs failed
-      if: failure() 
-      runs-on: ubuntu-latest
-      steps:
-        - name: Print report information
-          run: |
-            echo "This is a report line step"
-            echo "${{github}}"
+      uses: ./.github/workflows/reusable.yml 
+      with:
+        artifact-name: test-report-file
+      # if: failure() 
+      # runs-on: ubuntu-latest
+      # steps:
+      #   - name: Print report information
+      #     run: |
+      #       echo "This is a report line step"
+      #       echo "${{github}}"
