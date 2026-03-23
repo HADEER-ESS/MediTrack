@@ -22,7 +22,6 @@ jobs:
               run: yarn lint
 
     run_tests: #the name is upto you, it could be anything
-        needs: run_lint 
         runs-on: ubuntu-latest
         steps:
             - name: Get code
@@ -48,7 +47,7 @@ jobs:
               run: ls -R
 
             - name: Upload test report
-              if: failure() && steps.run-tests.outcome == 'failure'
+              # if: failure() && steps.run-tests.outcome == 'failure'
               uses: actions/upload-artifact@v4
               with:
                 name: test-report-file
@@ -86,6 +85,7 @@ jobs:
             - name: Deploy the project
               run: echo "Deploying the project..."
     report:
+      needs: [run_lint, deployment_project]
       #this job will run when any of previous jobs failed
       if: failure() 
       runs-on: ubuntu-latest
