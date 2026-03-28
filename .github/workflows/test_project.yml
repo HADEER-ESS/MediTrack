@@ -10,9 +10,12 @@ jobs:
             
             # add cache dependancies to speed up workflow
             - name: Load and Cache dependencies
+              id: load-cache-deps
               uses: ./.github/actions/cached-deps
               with:
                 caching: 'false'
+            - name: Get is Used Cache or Not
+              run: echo "Is cache used? ${{steps.load-cache-deps.outputs.cache-result}}"
             # - name: Cache dependencies
             #   uses: actions/cache@v5
             #   with:
