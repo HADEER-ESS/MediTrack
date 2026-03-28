@@ -1,0 +1,15 @@
+name: "Get and Cache Dependencies"
+description: "Get the dependancies (use YARN) and cache them to speed up the workflow"
+runs:
+  using: 'composite'
+  steps:
+    # add cache dependancies to speed up workflow
+    - name: Cache dependencies
+      uses: actions/cache@v5
+      with:
+        path: ~/.cache/yarn
+        key: deps-node-modules-${{hashFiles('**/yarn.lock')}}
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      shell: bash
