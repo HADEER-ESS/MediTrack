@@ -11,6 +11,8 @@ jobs:
             # add cache dependancies to speed up workflow
             - name: Load and Cache dependencies
               uses: ./.github/actions/cached-deps
+              with:
+                caching: 'false'
             # - name: Cache dependencies
             #   uses: actions/cache@v5
             #   with:

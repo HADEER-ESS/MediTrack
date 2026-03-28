@@ -1,10 +1,17 @@
 name: "Get and Cache Dependencies"
 description: "Get the dependancies (use YARN) and cache them to speed up the workflow"
+inputs:
+  # Define any inputs your action needs here
+  caching: #this name is UP TO YOU
+    description: 'whether to cache dependencies or not'
+    required: false
+    default: 'true'
 runs:
   using: 'composite'
   steps:
     # add cache dependancies to speed up workflow
     - name: Cache dependencies
+      if: inputs.caching == 'true' #means: if you wanna use caching, so this STEP will be executed
       id: cache
       uses: actions/cache@v5
       with:
@@ -12,6 +19,6 @@ runs:
         key: deps-node-modules-${{hashFiles('**/yarn.lock')}}
 
     - name: Install dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
+      if: steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true' #means: if I don't wanna use caching, so the INSTALLATION will be executed
       run: yarn install --frozen-lockfile
       shell: bash
